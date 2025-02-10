@@ -1,0 +1,65 @@
+﻿@page "/short"
+<PageTitle>Kalkulačka</PageTitle>
+<h1>Základní matematické operace</h1>
+<hr />
+<label>První číslo: <input @bind="cislo1" /></label>
+<br />
+<label>Druhé číslo: <input @bind="cislo2" /></label>
+<div class="m-3">
+	<button @onclick="Secti" type="button" class="btn btn-success">Součet (+)</button>
+	<button @onclick="Odecit" type="button" class="btn btn-info">Rozdíl (-)</button>
+	<button @onclick="Vynasob" type="button" class="btn btn-warning">Součin (*)</button>
+	<button @onclick="Vydel" type="button" class="btn btn-danger">Podíl (/)</button>
+</div>
+<label>Výsledek: <input @bind="vysledek" readonly /></label>
+
+@code {
+
+	/// <summary>
+	/// První vstupní číslo
+	/// </summary>
+	private short cislo1;  // proměnné pro vstupní hodnoty
+
+	/// <summary>
+	/// Druhé vstupní číslo
+	/// </summary>
+	private short cislo2;
+
+	/// <summary>
+	/// Výsledek matematické operace
+	/// </summary>
+	private short vysledek;
+
+	/// <summary>
+	/// Metoda pro sečtení dvou čísel
+	/// </summary>
+	private void Secti()
+	{
+		vysledek = (short)(cislo1 + cislo2);
+	}
+
+	/// <summary>
+	/// Metoda pro odečtení dvou čísel
+	/// </summary>
+	private void Odecit()
+	{
+		vysledek = (short)(cislo1 - cislo2);
+	}
+
+	/// <summary>
+	/// Metoda pro vynásobení dvou čísel
+	/// </summary>
+	private void Vynasob()
+	{
+		vysledek = (short)(cislo1 * cislo2);
+	}
+
+	/// <summary>
+	/// Metoda pro vydělení dvou čísel
+	/// </summary>
+	private void Vydel()
+	{
+		//vysledek = ((double)cislo1 / cislo2);
+		vysledek = (short)(cislo1 / cislo2);
+	}
+}
